@@ -5,7 +5,7 @@ import router from "../routes/FeedbackRoutes.js";
 
 const app = express();
 
-const PORT = 3000;
+const PORT = 3000 || process.env.PORT;
 
 app.use(express.json());
 
@@ -16,7 +16,9 @@ dotenv.config();
 
 dbConnect();
 
-
+app.get("/",(req,res)=>{
+  res.send("Yoo project is running !!")
+})
 
 app.listen(PORT, () => {
   console.log("Server is running at port:", PORT);
